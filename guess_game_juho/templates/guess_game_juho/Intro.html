@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+    Guess Game Intro
+{% endblock %}
+
+{% block content %}
+You have an endowment of {{Constants.endowment}} points. <br>
+
+The computer generates {{Constants.endowment}} <br>
+
+You have to guess this number <br>
+
+    {% next_button %}
+
+{% endblock %}
