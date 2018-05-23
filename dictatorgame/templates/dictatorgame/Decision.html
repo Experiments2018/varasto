@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+
+You and another participant are matched together. <br>
+One of you takes a role of Dictator and another is a Receiver. <br>
+A Dictator receives 100 points.<br>
+
+The Dictator chooses how much to send to a Receiver.<br>
+
+The rest is received by a Dictator. <br>
+
+<div class="alert alert-primary" role="alert">
+    This time you are assigned as a {{player.role}}!
+</div>
+
+ {%formfield group.dg_decision %}
+ {% next_button %}
+
+
+{% endblock %}

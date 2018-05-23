@@ -11,12 +11,20 @@ SESSION_CONFIG_DEFAULTS = {
     'doc': "",
 }
 
+
+
 SESSION_CONFIGS = [
     {
         'name': 'guess_game_juho',
         'display_name': "Guess Game Juho",
         'num_demo_participants': 1,
         'app_sequence': ['guess_game_juho'],
+    },
+    {
+        'name': 'dictatorgame',
+        'display_name': "Dictator Game",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictatorgame'],
     },
 ]
 
@@ -26,9 +34,9 @@ SESSION_CONFIGS = [
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'CHF'
 USE_POINTS = True
-
+#POINTS_CUSTOM_NAME = 'Markka'
 ROOMS = []
 
 

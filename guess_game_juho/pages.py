@@ -22,7 +22,7 @@ class Results(Page):
     def vars_for_template(self):
         dif = abs(self.player.toguess-self.player.guess)
         return {'dif':dif}
-        
+
 
 page_sequence = [
     Intro,
