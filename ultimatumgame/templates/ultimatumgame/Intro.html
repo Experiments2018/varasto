@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ultimatum Game Intro
+{% endblock %}
+
+{% block content %}
+
+{% formfield player.gender %}
+
+This is a Ultimatum where Agent1 can choose how much he send to a Agent2. <br>
+Agent2 can then either accept or reject the offer. If Agent2 accepts the offer both will get their money.<BR>
+If Agent2 rejects neither of them will get the money.<br>
+Roles are assigned automatically.
+
+
+    {% next_button %}
+
+{% endblock %}

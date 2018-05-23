@@ -4,7 +4,7 @@ from otree.api import (
 )
 
 
-author = 'Juho Ylimäki'
+author = 'Your name here'
 
 doc = """
 Your app description
@@ -12,12 +12,10 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'dictatorgame'
+    name_in_url = 'ultimatumgame'
     players_per_group = 2
     num_rounds = 1
     endowment = 100
-
-
 
 
 class Subsession(BaseSubsession):
@@ -25,15 +23,18 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    dg_decision=models.CurrencyField(min=0,
+    yesno=models.BooleanField(widget=widgets.RadioSelectHorizontal,
+                                 )
+
+    offer=models.CurrencyField(min=0,
                                     max=Constants.endowment,
                                     verbose_name='How much money you want to send?',
-                                    doc="dictator's decision")
+                                    doc="agent1 decision")
     def set_payoffs(self):
-        dictator = self.get_player_by_role('dictator')
-        receiver = self.get_player_by_role('receiver')
-        dictator.payoff = Constants.endowment - self.dg_decision
-        receiver.payoff = self.dg_decision
+        agent1 = self.get_player_by_role('agent1')
+        agent2 = self.get_player_by_role('agent2')
+        agent1.payoff = Constants.endowment - self.offer
+        agent2.payoff = self.offer
 
 
 
@@ -51,6 +52,6 @@ class Player(BasePlayer):
 
     def role(self):
         if self.id_in_group==1:
-            return 'dictator'
+            return 'agent1'
         else:
-            return 'receiver'
+            return 'agent2'

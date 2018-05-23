@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Decision
+{% endblock %}
+
+{% block content %}
+<div class="alert alert-primary" role="alert">
+    This time you are assigned as a {{player.role}}!
+</div>
+
+
+
+You and another participant have been matched together. <br>
+
+Another participant offers you {{group.offer}}. <br>
+
+{% if session.config.tgender %}
+
+The one who offers you is {{agent1.get_gender_display}}. <br>
+
+{% endif %}
+
+Do you accept the offer?
+
+ {%formfield group.yesno %}
+ {% next_button %}
+
+
+{% endblock %}

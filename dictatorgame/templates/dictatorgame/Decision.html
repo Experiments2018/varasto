@@ -6,19 +6,16 @@
 {% endblock %}
 
 {% block content %}
+    {% if session.config.tgender %}
 
-You and another participant are matched together. <br>
-One of you takes a role of Dictator and another is a Receiver. <br>
-A Dictator receives 100 points.<br>
+Receiver is {{receiver.get_gender_display}}. <br>
 
-The Dictator chooses how much to send to a Receiver.<br>
-
-The rest is received by a Dictator. <br>
+{% endif %}
 
 <div class="alert alert-primary" role="alert">
     This time you are assigned as a {{player.role}}!
 </div>
-
+Choose how much you will send to Agent2:
  {%formfield group.dg_decision %}
  {% next_button %}
 

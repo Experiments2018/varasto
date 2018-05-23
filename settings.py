@@ -21,12 +21,28 @@ SESSION_CONFIGS = [
         'app_sequence': ['guess_game_juho'],
     },
     {
-        'name': 'dictatorgame',
-        'display_name': "Dictator Game",
+        'name': 'dictatorgame_baseline',
+        'display_name': "Dictator Game - baseline",
         'num_demo_participants': 2,
         'app_sequence': ['dictatorgame'],
+        'tgender': False,
+    },
+    {
+        'name': 'dictatorgame_gender',
+        'display_name': "Dictator Game - gender info",
+        'num_demo_participants': 2,
+        'app_sequence': ['dictatorgame'],
+        'tgender': True,
+    },
+{
+        'name': 'ultimatumgame_gender',
+        'display_name': "Ultimatum Game - gender info",
+        'num_demo_participants': 2,
+        'app_sequence': ['ultimatumgame'],
+        'tgender': True,
     },
 ]
+
 
 
 # ISO-639 code
