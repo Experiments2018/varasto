@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Political opinions
+{% endblock %}
+
+{% block content %}
+
+<img src="{% static party_image_1 %}",  width="300"/>
+
+<img src="{% static party_image_2 %}",  width="300"/>
+
+<br>
+
+Which one would you choose:
+
+{%formfield player.yrside %}
+
+
+Your political view:
+
+{%formfield player.yrscale %}
+
+{% next_button %}
+
+{% endblock %}
