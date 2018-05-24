@@ -2,10 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Results
 {% endblock %}
 
 {% block content %}
+{% include 'ultimatumgame/ohjeet.html' %}
+
+<div>
+    Your payoff: {{player.payoff}}
+</div>
+<div>
+    Your partner's payoff: {{another_player_payoff}}
+</div>
 
     {% next_button %}
 {% endblock %}

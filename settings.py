@@ -14,26 +14,42 @@ SESSION_CONFIG_DEFAULTS = {
 
 
 SESSION_CONFIGS = [
+    # {
+    #     'name': 'guess_game_juho',
+    #     'display_name': "Guess Game Juho",
+    #     'num_demo_participants': 1,
+    #     'app_sequence': ['guess_game_juho'],
+    # },
+    # {
+    #     'name': 'dictatorgame_baseline',
+    #     'display_name': "Dictator Game - baseline",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['dictatorgame'],
+    #     'tgender': False,
+    # },
+    # {
+    #     'name': 'dictatorgame_gender',
+    #     'display_name': "Dictator Game - gender info",
+    #     'num_demo_participants': 2,
+    #     'app_sequence': ['dictatorgame'],
+    #     'tgender': True,
+    # },
     {
-        'name': 'guess_game_juho',
-        'display_name': "Guess Game Juho",
+        'name': 'politicalgame',
+        'display_name': "Political Game",
         'num_demo_participants': 1,
-        'app_sequence': ['guess_game_juho'],
-    },
-    {
-        'name': 'dictatorgame_baseline',
-        'display_name': "Dictator Game - baseline",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictatorgame'],
-        'tgender': False,
-    },
-    {
-        'name': 'dictatorgame_gender',
-        'display_name': "Dictator Game - gender info",
-        'num_demo_participants': 2,
-        'app_sequence': ['dictatorgame'],
+        'app_sequence': ['politicalgame'],
         'tgender': True,
     },
+
+{
+        'name': 'charity',
+        'display_name': "Charity Game",
+        'num_demo_participants': 1,
+        'app_sequence': ['charity'],
+        'tgender': True,
+    },
+
 {
         'name': 'ultimatumgame_gender',
         'display_name': "Ultimatum Game - gender info",

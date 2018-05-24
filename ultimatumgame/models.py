@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-
 author = 'Your name here'
 
 doc = """
@@ -23,35 +22,34 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    yesno=models.BooleanField(widget=widgets.RadioSelectHorizontal,
-                                 )
+    yesno = models.BooleanField(widget=widgets.RadioSelectHorizontal, )
+    offer = models.CurrencyField(min=0,
+                                 max=Constants.endowment,
+                                 verbose_name='How much money you want to send?',
+                                 doc="agent1 decision")
 
-    offer=models.CurrencyField(min=0,
-                                    max=Constants.endowment,
-                                    verbose_name='How much money you want to send?',
-                                    doc="agent1 decision")
     def set_payoffs(self):
         agent1 = self.get_player_by_role('agent1')
         agent2 = self.get_player_by_role('agent2')
-        agent1.payoff = Constants.endowment - self.offer
-        agent2.payoff = self.offer
-
-
-
+        if not self.yesno:
+            agent1.payoff = 0
+            agent2.payoff = 0
+        else:
+            agent1.payoff = Constants.endowment - self.offer
+            agent2.payoff = self.offer
 
 class Player(BasePlayer):
-
     gender = models.IntegerField(choices=
-                                 ((0,'female'),
-                                  (1,'male'),
-                                  (2,"don't know")),
+                                 ((0, 'female'),
+                                  (1, 'male'),
+                                  (2, "don't know")),
                                  widget=widgets.RadioSelectHorizontal,
                                  )
-
+    check = models.BooleanField()
 
 
     def role(self):
-        if self.id_in_group==1:
+        if self.id_in_group == 1:
             return 'agent1'
         else:
             return 'agent2'

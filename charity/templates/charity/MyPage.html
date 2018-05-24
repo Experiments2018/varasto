@@ -6,21 +6,19 @@
 {% endblock %}
 
 {% block content %}
+<div>Your endowment: <strong>{{player.endowment}}</strong></div>
+<img src="{% static image_1 %}",  width="300"/>
 
-<img src="{% static party_image_1 %}",  width="300"/>
-
-<img src="{% static party_image_2 %}",  width="300"/>
+<img src="{% static image_2 %}",  width="300"/>
 
 <br>
 
 Which one would you choose:
 
-{%formfield player.yrside %}
+{%formfield player.charity_donation %}
 
-
-Your political view:
-
-{%formfield player.yrscale %}
+{%formfield player.don1 %}
+{%formfield player.don2 %}
 
 {% next_button %}
 

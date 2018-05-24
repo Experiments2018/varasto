@@ -9,24 +9,39 @@ import random
 class MyPage(Page):
 
     form_model = 'player'
-    form_fields = ['yrside', "yrscale"]
+    form_fields = ['charity_donation', 'don1', 'don2']
+
+    timeout_seconds = 15
+    def before_next_page(self):
+        if self.timeout_happened:
+            self.player.don1 = random.randint(Constants.r_min, self.player.endowment)
+            self.player.don2 = self.player.endowment - self.player.don1
+
+
     def vars_for_template(self):
-        if self.player.radical:
-            return {'party_image_1': "suom.jpg",
-                'party_image_2': "vas.jpg"}
-
+        if self.player.personal_A:
+            image1 = "valas.jpg"
         else:
-            return {'party_image_1': "sdp.jpg",
-                    'party_image_2': "myimage.png"}
-
-
-    def yrside_choices(self):
-        #rand = random.choice([False, True])
-        if self.player.radical:
-            choices =["PerusSuomalaiset","Vasemmistoliitto"]
+            image1 = "greenlogo.png"
+        if self.player.personal_B:
+            image2 = "sprperson.jpg"
         else:
-            choices = ["Kokoomus", "SDP"]
-        return choices
+            image2 = "spr.png"
+
+        return {'image_1': image1,
+                    'image_2': image2,}
+
+    def don1_max(self):
+            return self.player.endowment
+
+    def don2_max(self):
+            return self.player.endowment
+
+    def error_message(self, values):
+        print('values is', values)
+        if values["don1"] + values["don2"] != self.player.endowment:
+
+            return 'The numbers must add up to {}.'.format(self.player.endowment)
 
 
 
