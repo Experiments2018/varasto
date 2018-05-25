@@ -76,7 +76,12 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'CHF'
 USE_POINTS = True
 #POINTS_CUSTOM_NAME = 'Markka'
-ROOMS = []
+ROOMS = [
+    {
+        'name': 'stgallen'
+        'display_name': 'Room for St.Gallen',
+    },
+]
 
 
 # AUTH_LEVEL:
