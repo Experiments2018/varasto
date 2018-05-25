@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your decision for contribution
+{% endblock %}
+
+{% block content %}
+
+{%formfield player.contribution%}
+    {% next_button %}
+
+{% endblock %}

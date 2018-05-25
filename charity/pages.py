@@ -8,6 +8,7 @@ import random
 
 class MyPage(Page):
 
+
     form_model = 'player'
     form_fields = ['charity_donation', 'don1', 'don2']
 
@@ -17,8 +18,13 @@ class MyPage(Page):
             self.player.don1 = random.randint(Constants.r_min, self.player.endowment)
             self.player.don2 = self.player.endowment - self.player.don1
 
+    def vars_for_template(self):
+
+        return {}
+
 
     def vars_for_template(self):
+        companies = ['Rennova', 'VRK', 'Lemminkàinen', 'YIT']
         if self.player.personal_A:
             image1 = "valas.jpg"
         else:
@@ -29,7 +35,8 @@ class MyPage(Page):
             image2 = "spr.png"
 
         return {'image_1': image1,
-                    'image_2': image2,}
+                    'image_2': image2,
+                'companies': companies}
 
     def don1_max(self):
             return self.player.endowment

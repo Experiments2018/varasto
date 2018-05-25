@@ -57,6 +57,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['ultimatumgame'],
         'tgender': True,
     },
+{
+        'name': 'publicgood',
+        'display_name': "Public Goods Game",
+        'num_demo_participants': 3,
+        'app_sequence': ['publicgood'],
+        'tgender': True,
+    },
 ]
 
 

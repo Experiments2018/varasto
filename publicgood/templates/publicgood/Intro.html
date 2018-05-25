@@ -2,20 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    Ultimatum Game Intro
+    Public Goods Game Intro
 {% endblock %}
 
 
 {% block content %}
 
 
-{% include 'ultimatumgame/ohjeet.html' %}
+{% include 'publicgood/ohjeet.html' %}
 
-Check question: If receiver reject nobody will get anything? True/False
+<br>Check question: If you decide to contribute 0 everybody will allways get 0.  Is this true?
 {% formfield player.check %}
-
-Your gender:
-{% formfield player.gender %}
 
 
 

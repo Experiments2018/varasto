@@ -2,10 +2,20 @@
 {% load otree static %}
 
 {% block title %}
-    Political opinions
+    Charity game
 {% endblock %}
 
 {% block content %}
+
+<table class="table table-hover table-striped">
+    {%for company in companies %}
+    <tr>
+        <td>{{ company }}</td>
+
+    </tr>
+      {% endfor %}
+</table>
+
 <div>Your endowment: <strong>{{player.endowment}}</strong></div>
 <img src="{% static image_1 %}",  width="300"/>
 

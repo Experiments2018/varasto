@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+<div>Total contribution: {{group.total_contribution}}
+</div>
+
+    <br>
+<div>Your contribution: {{player.contribution}}
+</div>
+
+<div>Your payoff from the pool: {{group.individual_share}}
+</div>
+<div>Your total payoff: {{player.payoff}}
+</div>
+
+
+    {% next_button %}
+{% endblock %}
+
+
