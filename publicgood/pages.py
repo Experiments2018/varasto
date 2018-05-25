@@ -86,7 +86,7 @@ class Finalresults(Page):
 
 
 page_sequence = [
-    # Intro,
+    Intro,
     Decision,
     ResultsWaitPage,
     Results,
