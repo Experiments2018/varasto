@@ -8,6 +8,9 @@
 
 {% block content %}
 
+    <div id="juhochart"
+        style= "min-width: 300px; height:400px; margin: 0 auto">
+    </div>
 
 {% include 'publicgood/ohjeet.html' %}
 
@@ -19,4 +22,20 @@
 
     {% next_button %}
 
+    <div class="btn btn-lg btn-success">Nationality check</div>
+    <div class="juho">I am Finn</div>
+{% endblock %}
+
+{% block scripts %}
+
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+    <script>
+        $(function () {
+           $('#juhochart').highcharts ({
+                series: {{series|json}}
+          });
+        });
+    </script>
 {% endblock %}

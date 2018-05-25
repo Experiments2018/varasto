@@ -13,7 +13,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'publicgood'
     players_per_group = 3
-    num_rounds = 1
+    num_rounds = 3
     endowment = 100
     efficiency_factor = 2
 
@@ -38,6 +38,5 @@ class Player(BasePlayer):
                                         max=Constants.endowment,
                                         verbose_name='How much money you want to contribute?',
                                         doc="playerdecision")
-
 
     check = models.BooleanField()

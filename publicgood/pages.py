@@ -3,35 +3,53 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-
 class Intro(Page):
     form_model = 'player'
-    form_fields =['check']
+    form_fields = ['check']
 
     def check_error_message(self, value):
         if value:
             return 'Read intro more carefully and try again.'
+
+    def is_displayed(self):
+        if self.round_number == 1:
+            return True
+
     pass
 
-class Decision(Page):
 
+class Decision(Page):
     form_model = 'player'
     form_fields = ['contribution']
 
 
 class ResultsWaitPage(WaitPage):
     body_text = 'please wait others'
+
     def after_all_players_arrive(self):
         self.group.set_payoffs()
-
-
 
 
 class Results(Page):
 
     def vars_for_template(self):
-        another_player_payoff = self.player.get_others_in_group()[0].payoff
-        return {"another_player_payoff": another_player_payoff}
+        data = [p.payoff for p in self.group.get_players()]
+        totalcontribs = [round(g.total_contribution/Constants.players_per_group) for g in self.group.in_all_rounds()]
+        yourcontr = [y.contribution for y in self.player.in_all_rounds()]
+
+        series = [{
+            'name': 'Your contribution per round',
+            'type': 'column',
+            'data': yourcontr,
+
+        },
+            {
+                'name': 'Average contributions per round',
+                'type': 'line',
+                'data': totalcontribs,
+            }
+        ]
+        return {'series': series}
 
         # total_contribution = sum([p.contribution for p in self.get_players()])
         #
@@ -58,9 +76,20 @@ class Results(Page):
         #     'dictators_share': dicshare}
 
 
+class Finalresults(Page):
+
+    def is_displayed(self):
+        if self.round_number == Constants.num_rounds:
+            return True
+
+    pass
+
+
 page_sequence = [
-    Intro,
+    # Intro,
     Decision,
     ResultsWaitPage,
-    Results
+    Results,
+    Finalresults
+
 ]
