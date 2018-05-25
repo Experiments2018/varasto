@@ -78,7 +78,7 @@ USE_POINTS = True
 #POINTS_CUSTOM_NAME = 'Markka'
 ROOMS = [
     {
-        'name': 'stgallen'
+        'name': 'stgallen',
         'display_name': 'Room for St.Gallen',
     },
 ]
